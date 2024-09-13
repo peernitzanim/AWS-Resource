@@ -17,7 +17,18 @@ def action(args):
         else:
             delete_bucket(args.name, buckets)
 
-
+def action_jenkins_s3(jenkins_info):
+    if 'create' in jenkins_info['action']:
+        create_bucket(jenkins_info['name'], jenkins_info['myname'], jenkins_info['public'], "Jenkins")
+    else:
+        buckets = check_owner(jenkins_info['myname'], "Jenkins")
+        if 'list' in jenkins_info['action']:
+            list_buckets(buckets)
+        elif args.action == "update":
+            upload(jenkins_info['name'], jenkins_info['filename'], buckets)
+        else:
+            delete_bucket(jenkins_info['name'], buckets)
+            
 def action_app_s3(request):
     data = request.get_json()
     if 'create' in request.args:
