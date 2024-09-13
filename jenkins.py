@@ -35,8 +35,6 @@ def s3_delete(name, myname):
     action_jenkins_s3(jenkins_info)
 
 def s3_update(name, myname, filename):
-    print(filename)
-    print("Path of the file..", os.path.abspath(filename))
-    jenkins_info = {'action': 'update', 'name': name, 'myname': myname, 'filename': filename}
+    jenkins_info = {'action': 'update', 'name': name, 'myname': myname, 'filename': os.path.abspath(filename)}
     #action_jenkins_s3(jenkins_info)
 
