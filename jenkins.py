@@ -1,6 +1,7 @@
 from ec2 import action_jenkins_ec2
 from s3 import action_jenkins_s3
 import route53
+import os
 
 
 def ec2_create(name, myname, ami, instance_type):
@@ -35,6 +36,7 @@ def s3_delete(name, myname):
 
 def s3_update(name, myname, filename):
     print(filename)
+    print("Path of the file..", os.path.abspath(filename))
     jenkins_info = {'action': 'update', 'name': name, 'myname': myname, 'filename': filename}
-    action_jenkins_s3(jenkins_info)
+    #action_jenkins_s3(jenkins_info)
 
