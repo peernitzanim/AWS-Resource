@@ -4,16 +4,13 @@ import boto3
 
 
 def create_instance(ec2_name, myname, info, ec2_ami, ec2_instance_type) :
-    print("hiiii")
     if info == "cli":
         myname = myname + " cli"
     elif info == "app":
         myname = myname + " app"
     else:
         myname = myname + " Jenkins"
-    print("a")
     ec2 = boto3.resource('ec2')
-    print("B")
     name = ""
     count_machines = 0
     for instance in ec2.instances.all():
@@ -30,12 +27,9 @@ def create_instance(ec2_name, myname, info, ec2_ami, ec2_instance_type) :
         if ec2_ami == "ubuntu":
             ami = "ami-0e86e20dae9224db8"
         instance_type = "t3.nano"
-        print()
         if ec2_instance_type:
             instance_type = ec2_instance_type
         # Create the instance
-        print(instance_type)
-        print(ami)
         instance = ec2.create_instances(
             ImageId=ami,
             InstanceType=instance_type,
