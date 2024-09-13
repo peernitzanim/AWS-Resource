@@ -24,7 +24,7 @@ def action_jenkins_s3(jenkins_info):
         buckets = check_owner(jenkins_info['myname'], "Jenkins")
         if 'list' in jenkins_info['action']:
             list_buckets(buckets)
-        elif args.action == "update":
+        elif 'update' in jenkins_info['action']:
             upload(jenkins_info['name'], jenkins_info['filename'], buckets)
         else:
             delete_bucket(jenkins_info['name'], buckets)
