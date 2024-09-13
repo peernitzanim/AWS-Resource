@@ -35,7 +35,9 @@ def action_jenkins_ec2(jenkins_info):
     if 'list' in jenkins_info['action']:
         return list_instances(jenkins_info['myname'], "Jenkins")
     elif 'create' in jenkins_info['action']:
-        return create_instance(jenkins_info['name'], jenkins_info['myname'], "Jenkins", jenkins_info['ami'], jenkins_info['instance_type'])
+        print(jenkins_info)
+        return 5
+        #return create_instance(jenkins_info['name'], jenkins_info['myname'], "Jenkins", jenkins_info['ami'], jenkins_info['instance_type'])
     elif 'delete' in jenkins_info['action']:
         return vm_exists(jenkins_info['name'], jenkins_info['myname'], 'delete', "Jenkins")
     elif 'update' in jenkins_info['action']:
