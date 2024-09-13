@@ -4,8 +4,6 @@ from ec2.list import list_instances
 from ec2.update import change_status_instances
 import boto3
 
-def peer(test):
-    print(test)
 
 def action_cli(args):
     if args.action == "list":
