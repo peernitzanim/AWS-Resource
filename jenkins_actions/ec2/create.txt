@@ -29,10 +29,10 @@ pipeline {
                         ]) {
                             powershell """
                                 C:/Users/peer/AppData/Local/Programs/Python/Python312/python.exe -c \"
-				import sys;
-				sys.path.append('C:/ProgramData/Jenkins/.jenkins/workspace/EC2-Create');
-				from jenkins import ec2_create;	
-				ec2_create('${name}', '${myname}', '${ami}', '${instance_type}');
+import sys;
+sys.path.append('C:/ProgramData/Jenkins/.jenkins/workspace/EC2-Create');
+from jenkins import ec2_create;
+ec2_create('${name}', '${myname}', '${ami}', '${instance_type}');
                                 \"
                             """
                         }
