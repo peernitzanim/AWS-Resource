@@ -11,8 +11,9 @@ def create_instance(ec2_name, myname, info, ec2_ami, ec2_instance_type) :
         myname = myname + " app"
     else:
         myname = myname + " Jenkins"
-
+    print("a")
     ec2 = boto3.resource('ec2')
+    print("B")
     name = ""
     count_machines = 0
     for instance in ec2.instances.all():
