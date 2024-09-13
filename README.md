@@ -1,2 +1,0 @@
-# AWS-Resource
-AWS-Resource

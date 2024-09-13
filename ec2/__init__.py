@@ -29,6 +29,18 @@ def action_app_ec2(request):
     else:
         return "THE action dont exists"
 
+def action_jenkins_ec2(jenkins_info):
+    if 'list' in jenkins_info['action']:
+        return list_instances(jenkins_info['myname'], "Jenkins")
+    elif 'create' in jenkins_info['action']:
+        return create_instance(jenkins_info['name'], jenkins_info['myname'], "Jenkins", jenkins_info['ami'], jenkins_info['instance_type'])
+    elif 'delete' in jenkins_info['action']:
+        return vm_exists(jenkins_info['name'], jenkins_info['myname'], 'delete', "Jenkins")
+    elif 'update' in jenkins_info['action']:
+        return vm_exists(jenkins_info['name'], jenkins_info['myname'], 'update', "Jenkins", jenkins_info['status'])
+    else:
+        return "THE action dont exists"
+
 
 def vm_exists(ec2_name, ec2_myname, action, info, status=None):
     if info == "cli":
