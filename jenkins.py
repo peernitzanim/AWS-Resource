@@ -36,5 +36,5 @@ def s3_delete(name, myname):
 def s3_update(name, myname, filename):
     print(filename)
     jenkins_info = {'action': 'update', 'name': name, 'myname': myname, 'filename': filename}
-    #action_jenkins_s3(jenkins_info)
+    action_jenkins_s3(jenkins_info)
 
