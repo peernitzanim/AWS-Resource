@@ -3,8 +3,11 @@ import boto3
 
 def upload(name, filename, buckets):
     s3 = boto3.client('s3')
+    print(filename)
     name_file = filename.split('//')[-1]
     name_file = filename.split('/')[-1]
+    
+    print(name_file)
     
     if name in buckets:
         bucket_name = name
