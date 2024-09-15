@@ -3,12 +3,7 @@ import boto3
 
 def list_instances(ec2_myname, info) -> list:
     list_of_instances = []
-    if info == "cli":
-        ec2_myname = ec2_myname + " cli"
-    elif info == "app":
-        ec2_myname = ec2_myname + " app"
-    else:
-        ec2_myname = ec2_myname + " Jenkins"
+    ec2_myname = f"{ec2_myname} {info}"
     ec2 = boto3.resource('ec2')
     for instance in ec2.instances.all():
         if instance.state['Name'] == "running" or instance.state['Name'] == "stopped":
