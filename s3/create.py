@@ -3,13 +3,8 @@ import json
 
 
 def create_bucket(name, myname, public, info):
-    if info == "cli":
-        myname = myname + " cli"
-    elif info == "app":
-        myname = myname + " app"
-    else:
-        myname = myname + " Jenkins"
-
+    myname = f"{myname} {info}"
+    
     s3 = boto3.client('s3')
     try:
         s3.create_bucket(Bucket=name)
