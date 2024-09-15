@@ -4,12 +4,7 @@ import boto3
 
 
 def create_instance(ec2_name, myname, info, ec2_ami, ec2_instance_type) :
-    if info == "cli":
-        myname = myname + " cli"
-    elif info == "app":
-        myname = myname + " app"
-    else:
-        myname = myname + " Jenkins"
+     myname = f"{myname} {info}"
     ec2 = boto3.resource('ec2')
     name = ""
     count_machines = 0
