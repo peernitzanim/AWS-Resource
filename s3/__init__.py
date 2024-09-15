@@ -46,13 +46,7 @@ def action_app_s3(request):
 
 
 def check_owner(myname, info):
-    if info == "cli":
-        myname = myname + " cli"
-    elif info == "app":
-        myname = myname + " app"
-    else:
-        myname = myname + " Jenkins"
-
+    myname = f"{myname} {info}"
     client = boto3.client('s3')
     response = client.list_buckets()
     buckets = []
