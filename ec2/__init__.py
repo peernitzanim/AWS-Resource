@@ -43,12 +43,7 @@ def action_jenkins_ec2(jenkins_info):
 
 
 def vm_exists(ec2_name, ec2_myname, action, info, status=None):
-    if info == "cli":
-        ec2_myname = ec2_myname + " cli"
-    elif info == "app":
-        ec2_myname = ec2_myname + " app"
-    else:
-        ec2_myname = ec2_myname + " Jenkins"
+    ec2_myname = f"{ec2_myname} {info}"
     ec2 = boto3.resource('ec2')
     for instance in ec2.instances.all():
         name = ""
